@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#009688</color>
+    <color name="colorPrimaryDark">#18978B</color>
+    <color name="colorAccent">#4CAF50</color>
+    <color name="colorNewsSection">#8BC34A</color>
+    <color name="colorNewsTitle">#232323</color>
+    <color name="colorNewsType">#00BCD4</color>
+    <color name="colorNewsDate">#9C27B0</color>
+</resources>
