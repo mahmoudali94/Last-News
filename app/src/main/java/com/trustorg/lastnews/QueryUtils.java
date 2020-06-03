@@ -43,7 +43,14 @@ public class QueryUtils {
                 String date = news.getString("webPublicationDate");
                 String section = news.getString("sectionName");
                 String url =  news.getString("webUrl");
-                News n = new News(title, type, date, section, url);
+                String author;
+                if ((news.getString("author") != null)) {
+
+                   author = news.getString("author");
+                } else {
+                    author = null;
+                }
+                News n = new News(title, type, date, section, url, author);
                 newses.add(n);
             }
         } catch (JSONException e) {

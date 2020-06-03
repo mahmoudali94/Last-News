@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Last News</string>
     <string name="news_title">Bangladesh v England: second one-day international – live!</string>
+    <string name="news_author">Author Name</string>
     <string name="type">Type</string>
     <string name="news_type">liveblog</string>
     <string name="date">Date</string>

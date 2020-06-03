@@ -8,6 +8,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     TextView mEmptyStateTextView;
     View mLoadingIndicator;
     public static final String LOG_TAG = MainActivity.class.getName();
-    private static final String NEWS_REQUEST_URL = "https:/content.guardianapis.com/search?api-key=3b6f1823-9d33-46b3-aea0-b19456d6545e";
+    private static final String NEWS_REQUEST_URL = "https://content.guardianapis.com/search";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,8 +75,13 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
         mLoadingIndicator.setVisibility(View.VISIBLE);
         mRecyclerView.setVisibility(View.GONE);
-
-        return new MyLoader(this, NEWS_REQUEST_URL);
+        Uri baseUri = Uri.parse(NEWS_REQUEST_URL);
+        Uri.Builder uriBuilder = baseUri.buildUpon();
+        uriBuilder.appendQueryParameter("api-key", "3b6f1823-9d33-46b3-aea0-b19456d6545e");
+        Log.i("url",""+uriBuilder.toString());
+        if(mSearchQuery!=null)
+            uriBuilder.appendQueryParameter("q", mSearchQuery);
+        return new MyLoader(this, uriBuilder.toString());
     }
 
     @Override

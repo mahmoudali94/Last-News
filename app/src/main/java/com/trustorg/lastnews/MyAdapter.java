@@ -38,6 +38,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.NewsViewHolder> {
         holder.mType.setText(news.getType());
         holder.mDate.setText(news.getDate());
         holder.mSection.setText(news.getSection());
+        holder.mAuthor.setText(news.getAuthor());
         holder.bind(mNewsList.get(position), mListener);
     }
 
@@ -51,6 +52,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.NewsViewHolder> {
         TextView mType;
         TextView mDate;
         TextView mSection;
+        TextView mAuthor;
 
         public NewsViewHolder(View v) {
             super(v);
@@ -58,6 +60,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.NewsViewHolder> {
             mType = v.findViewById(R.id.news_type);
             mDate = v.findViewById(R.id.news_date);
             mSection = v.findViewById(R.id.news_section);
+            mAuthor = v.findViewById(R.id.news_author);
         }
 
         public void bind(final News news, final OnItemClickListener listener) {
