@@ -39,6 +39,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.NewsViewHolder> {
         holder.mDate.setText(news.getDate());
         holder.mSection.setText(news.getSection());
         holder.mAuthor.setText(news.getAuthor());
+        if ((news.getAuthor()!=null)){
+            holder.mAuthor.setVisibility(View.GONE);
+        }
         holder.bind(mNewsList.get(position), mListener);
     }
 
